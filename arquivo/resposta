@@ -1,0 +1,149 @@
+atividade
+1-Sentinela – Maior e menor valor
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int maiorNum;
+        int menorNum;
+    
+        System.out.print("Informe um numero ou 0 para encerrar: ");
+        int numero = sc.nextInt();
+        
+         if (numero != 0) {
+         maiorNum = numero;
+         menorNum = numero;
+        
+         while (numero != 0) {    
+        if (numero > maiorNum) {
+         maiorNum = numero;
+        }
+        if (numero < menorNum) {
+         menorNum = numero;
+        }
+        System.out.print("Informe um numero ou 0 para encerrar: ");
+        numero = sc.nextInt(); 
+         }
+         System.out.println("Maior número: " + maiorNum);
+         System.out.println("Menor número: " + menorNum);
+         
+        }else { 
+            
+        System.out.println("Nenhum numero foi digitado.");
+    
+        
+        }
+        }
+}
+
+2- Contagem de valores
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+       int posi = 0;
+       int nega = 0;
+       int zeros = 0;
+       int num;
+       for (int i = 0; i < 10; i++) {
+        
+        num = sc.nextInt();   
+        
+       if (num > 0) {
+        posi++;
+        
+       } else if (num < 0) {
+        nega++;
+        
+       }else {
+        zeros++;   
+         }
+       }
+    System.out.println("Positivos: " + posi);
+    System.out.println("Negativos: " + nega);
+    System.out.println("Zeros: " + zeros);
+    }
+}
+3-Soma de 1 até N
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+       int n;
+       int soma = 0;
+       n = sc.nextInt();
+       
+       for (int i = 1; i <= n; i++) {
+        soma = soma + i;   
+       }
+     System.out.println("O valor da soma e: " + soma);
+    } 
+}
+4-Contagem regressiva e soma
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+       int n;
+       int soma = 0;
+       n = sc.nextInt();
+       
+       for (int i = n; i >= 1; i--) {
+        soma = soma + i; 
+     System.out.print(i + " ");
+       }
+    System.out.println("\nSoma = " + soma);
+    } 
+}
+
+5- Fatorial
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+       int fatorial = 1;
+       
+       for (int i = 1; i <= 10; i++) {
+      fatorial = 1;
+      
+     for (int j = 1; j <= i; j++) {
+      fatorial = fatorial * j;
+     }
+     System.out.println(i + "! = " + fatorial);
+    }
+  }
+}
+6-Cálculo da série E
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int N;
+        double E = 1;
+        int fatorial = 1;
+
+        System.out.print("Digite um numero inteiro positivo: ");
+        N = sc.nextInt();
+        
+        for (int i = 1; i <= N; i++) {
+            fatorial = 1;
+        for (int j = 1; j <= i; j++) {
+            fatorial = fatorial * j;
+        }
+        E = E + 1.0 / fatorial;
+       }
+       System.out.println("E = " + E);
+    }
+}
+
+7- Pesquisa da Prefeitura
