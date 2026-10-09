@@ -147,3 +147,280 @@ public class Main {
 }
 
 7- Pesquisa da Prefeitura
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        double salario;
+        double somaSalarios = 0;
+        double maiorSalario = 0;
+
+        int filhos;
+        int somaFilhos = 0;
+        int quantidade = 0;
+        int ate100 = 0;
+        
+        System.out.print("Digite o salario: ");
+        salario = sc.nextDouble();
+        
+        while (salario >= 0) {
+            System.out.print("Digite o numero de filhos: ");
+            filhos = sc.nextInt();
+            
+            somaSalarios = somaSalarios + salario;
+            somaFilhos = somaFilhos + filhos;
+            quantidade++;
+            if (salario <= 100) {
+                ate100++;
+            }
+            if (salario > maiorSalario) {
+                maiorSalario = salario;
+            }
+            System.out.print("Digite o salario (negativo para encerrar): ");
+            salario = sc.nextDouble();
+        }
+        double mediaSalaria = 0;
+        double mediaFilhos = 0;
+        double percentual = 0;
+        
+        if (quantidade > 0) {
+         mediaSalaria = somaSalarios / quantidade;
+         mediaFilhos = (double) somaFilhos / quantidade;    
+         percentual = ate100 * 100.0 / quantidade;   
+        
+        System.out.println("A média salarial da população: " + mediaSalaria);
+        System.out.println("A média salarial dos filhos: " + mediaFilhos);
+        System.out.println("O maior salario: " + maiorSalario);
+        System.out.println("Percentual: " + percentual);
+        }
+    }
+}
+
+8-Crescimento de Chico e Zé
+import java.util.Locale;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        double chico = 1.50;
+        double ze = 1.10;
+        int anos = 0;
+        
+        for (; ze <= chico; ) {
+            chico += 0.02;
+            ze += 0.03;
+            anos++;
+        }
+        System.out.println("Quantidade de anos: " + anos);
+        System.out.printf(Locale.forLanguageTag("pt-BR"), "A altura final de chico: %.2f m%n", chico);
+        System.out.printf(Locale.forLanguageTag("pt-BR"), "A altura final de ze: %.2f m%n", ze);
+    }
+}
+
+9-Eleição
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+     Scanner sc = new Scanner(System.in);
+
+        int voto = -1;
+        int candidato1 = 0;
+        int candidato2 = 0;
+        int candidato3 = 0;
+        int candidato4 = 0;
+        int nulos = 0;
+        int brancos = 0;
+     
+     while (voto != 0) {
+         System.out.print("Digite o codigo do voto ( 0 pra encerrar): ");
+         voto = sc.nextInt();
+         
+         switch (voto) {
+             case 1:
+                 candidato1++;
+                 break;
+     
+              case 2:
+                  candidato2++;
+                  break;
+                
+                case 3:
+                  candidato3++;
+                  break;
+                  
+                case 4:
+                  candidato4++;
+                  break;  
+            
+                case 5:
+                 nulos++;
+                 break;
+                 
+                 case 6:
+                 brancos++;
+                 break;
+         }
+     }
+        System.out.println("Candidato 1: " + candidato1);
+        System.out.println("Candidato 2: " + candidato2);
+        System.out.println("Candidato 3: " + candidato3);
+        System.out.println("Candidato 4: " + candidato4);
+        System.out.println("Total de votos nulos: " + nulos);
+        System.out.println("Total de votos em branco: " + brancos);
+         
+    }
+}
+
+10-Progressão Aritmética
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+     Scanner sc = new Scanner(System.in);
+     
+     int N;
+     int a1;
+     int r;
+     int termo;
+     int soma = 0;
+     
+      N = sc.nextInt();
+      a1 = sc.nextInt();
+      r = sc.nextInt();
+     
+    for (int i = 1; i <= N; i++) {
+      
+      termo = a1 +(i - 1) *r;
+      
+      System.out.print( termo + " "); 
+      soma += termo;
+    } 
+    System.out.println("\nSoma: " + soma);
+    }
+}
+
+11-Tabuada
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+     Scanner sc = new Scanner(System.in);
+     
+     int N;
+     
+     for (int i = 1; i <= 20; i++) {
+         System.out.print("Digite um numero: ");
+         N = sc.nextInt();
+         
+     for (int j = 1; j <= N; j++) {
+         System.out.println(j + " x " +  N  + " = " + (j * N));
+       }     
+      }
+    }
+}
+12- Pesquisa sobre características da população
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+     Scanner sc = new Scanner(System.in);
+     
+        char sexo;
+        String olhos;
+        String cabelos;
+        int idade;
+
+        int maiorIdade = 0;
+        int mulheresEncontradas = 0;
+        
+        System.out.print("Digite a idade (-1 para encerrar): ");
+        idade = sc.nextInt();
+        
+        while (idade != -1) {
+        System.out.print("Digite o sexo (M/F): ");
+        sexo = sc.next().charAt(0);
+
+        System.out.print("Digite a cor dos olhos: ");
+        olhos = sc.next();
+
+        System.out.print("Digite a cor dos cabelos: ");
+        cabelos = sc.next(); 
+        
+        if (idade > maiorIdade) {
+        maiorIdade = idade;
+        }
+        if (sexo == 'F' && idade >= 18 && idade <= 35
+        && olhos.equalsIgnoreCase("verdes")
+        && cabelos.equalsIgnoreCase("louros")) {
+        mulheresEncontradas++;
+        }  
+        System.out.print("Digite a idade (-1 para encerrar): ");
+        idade = sc.nextInt();
+      
+    }
+    System.out.println("Maior idade: " + maiorIdade);
+    System.out.println("Quantidade de mulheres: " + mulheresEncontradas);
+   }
+}
+
+13-Atualização de preços
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+     Scanner sc = new Scanner(System.in);
+     
+      int codigo;
+      int quantidade = 0;
+      double preco;
+      double novoPreco;
+      double somaPreco = 0;
+      double somaNovoPreco = 0;
+      double mediaPreco;
+      double mediaNovoPreco;
+      
+      System.out.print("Digite o código: ");
+      codigo = sc.nextInt();
+      
+      while (codigo >= 0) {
+        System.out.print("Digite o preço: ");
+        preco = sc.nextDouble();
+        
+        novoPreco = preco * 1.20;  
+        
+        System.out.println("Código: " + codigo);
+        System.out.println("Novo preço: R$ " + novoPreco);
+        
+        somaPreco += preco;
+          
+        quantidade++;
+        
+        somaNovoPreco += novoPreco;
+        
+        System.out.print("Digite proximo código: ");
+        codigo = sc.nextInt();
+        }
+      
+        if (quantidade == 0) {
+         System.out.print("Nenhum produto.");    
+        }else {
+        mediaPreco = somaPreco / quantidade;
+        mediaNovoPreco = somaNovoPreco / quantidade; 
+        
+        System.out.println("Média antes do aumento: R$ " + mediaPreco);
+        System.out.println("Média após o aumento: R$ " + mediaNovoPreco);
+        
+        }
+   }
+}
+
+14-
