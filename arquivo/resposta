@@ -423,4 +423,130 @@ public class Main {
    }
 }
 
-14-
+14- Números entre 1000 e 1999
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		
+		for (int num = 1000; num <= 1999; num++) {
+		   if (num %11 == 5) {
+		       System.out.println(num);
+		   }
+		}
+	}
+}
+
+15- Série harmônica
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+
+    int N;
+    double S = 0;
+    
+    System.out.print("Digite um número inteiro positivo: ");
+    N = sc.nextInt();
+    
+    for (int i = 1; i <= N; i++) {
+        S += 1.0 / i;
+        if (i == 1) {
+         System.out.print(1);
+        }else {
+         System.out.print(" + 1/" + i);
+        }
+     }
+     System.out.println("\nS = " + S);
+	}
+}
+
+16-Números perfeitos
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+
+    int soma = 0;
+    int quantidade = 0;
+    
+        for (int j = 2; quantidade < 5; j++) {
+            soma = 0;
+        
+        for (int i = 1; i < j; i++) {
+            if (j % i == 0) {
+             soma += i;
+            }
+        }
+        if (soma == j) {
+            System.out.println("Numero perfeito: " + j);
+            quantidade++;
+        }
+      }
+	}
+}
+
+17-Estatística de acidentes de trânsito
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+
+    int codigo;
+    String estado;
+    int veiculos;
+    int acidentes;
+
+    int maiorAcidentes = 0;
+    int menorAcidentes = 0;
+    int codigoMaior = 0;
+    int codigoMenor = 0;
+
+    int somaVeiculos = 0;
+    double mediaVeiculos;
+    
+    for (int i = 1; i <= 200; i++) {
+    
+        System.out.print("Digite o código da cidade: ");
+        codigo = sc.nextInt();
+        
+        System.out.print("Digite o estado: ");
+        estado = sc.next();
+        
+        System.out.print("Numero do veiculo: ");
+        veiculos = sc.nextInt();
+        
+        System.out.print("Numeros de acidentes: ");
+        acidentes = sc.nextInt();
+        
+        somaVeiculos += veiculos;
+    if (i == 1) {
+    maiorAcidentes = acidentes;
+    menorAcidentes = acidentes;
+    codigoMaior = codigo;
+    codigoMenor = codigo;
+	}else { 
+	  if (acidentes > maiorAcidentes) { 
+	   maiorAcidentes = acidentes;
+       codigoMaior = codigo;
+	}
+	if (acidentes < menorAcidentes) {
+	   menorAcidentes = acidentes;
+       codigoMenor = codigo;
+	}
+    }
+    }
+    System.out.println("Maior número de acidentes: " + maiorAcidentes);
+    System.out.println("Código da cidade: " + codigoMaior);
+
+    System.out.println("Menor número de acidentes: " + menorAcidentes);
+    System.out.println("Código da cidade: " + codigoMenor);
+    
+    mediaVeiculos = somaVeiculos / 200.0;
+    System.out.println("Média de veículos: " + mediaVeiculos);
+    }
+}
+
+18-Conceito final dos alunos
