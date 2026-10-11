@@ -793,3 +793,328 @@ public class Main {
 }
 
 23- Produção de uma fábrica
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	
+	int num;
+	int pecas;
+	int totalPecas = 0;
+	int somaPecasHomens = 0;
+	int somaPecasMulheres = 0;
+	int quantidadeHomens = 0;
+	int quantidadeMulheres = 0;
+	int numeroMaiorSalario = 0;
+	
+	char sexo;
+	
+	double salarioMinimo;
+	double salario;
+	double totalFolha = 0;
+	double maiorSalario = 0;
+	
+	System.out.print("Digite o salário mínimo: ");
+    salarioMinimo = sc.nextDouble();
+	
+	for (int i = 1; i <= 15; i++) {
+	    
+	    System.out.print("Numero de operadores: ");
+	    num = sc.nextInt();
+	    
+	    System.out.print("Quantidade de peças produzidas: ");
+	    pecas = sc.nextInt();
+	    
+	    System.out.print("sexo: ");
+	    sexo = sc.next().toUpperCase().charAt(0);
+	    
+	    if (pecas <= 30) {
+	      salario = salarioMinimo; 
+	      
+	    }else if (pecas <= 50) {
+	        salario = salarioMinimo + (pecas - 30) * (salarioMinimo * 0.03);
+	        
+	    }else {
+	       salario = salarioMinimo + (pecas - 30) * (salarioMinimo * 0.05);
+	    }
+	       totalFolha += salario;
+	       
+	       totalPecas += pecas;
+	       
+	       System.out.println("Numero de operadores: " + num);
+	       
+	       System.out.println("Salario: R$ " + salario);
+	       
+	    if (sexo == 'M') {
+	       somaPecasHomens += pecas;
+           quantidadeHomens++;
+           
+        }else if (sexo == 'F') {
+            somaPecasMulheres += pecas;    
+            quantidadeMulheres++;
+        }
+        if (i == 1 || salario > maiorSalario) {
+            maiorSalario = salario;
+            numeroMaiorSalario = num;
+ 	   }
+	}
+	double mediaHomens = 0;
+    double mediaMulheres = 0;
+
+        if (quantidadeHomens > 0) {
+        mediaHomens = (double) somaPecasHomens / quantidadeHomens;
+        }
+        
+        if (quantidadeMulheres > 0) {
+        mediaMulheres = (double) somaPecasMulheres / quantidadeMulheres;
+        }
+
+        System.out.println("\n===== RESULTADOS FINAIS =====");
+
+        System.out.println("Total da folha de pagamento: R$ " + totalFolha);
+        System.out.println("Total de peças produzidas: " + totalPecas);
+        System.out.println("Média de peças dos homens: " + mediaHomens);
+        System.out.println("Média de peças das mulheres: " + mediaMulheres);
+        System.out.println("Operário com maior salário: " + numeroMaiorSalario);
+        System.out.println("Maior salário: R$ " + maiorSalario);
+  }
+}
+
+24-Mortalidade infantil
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	
+	int quantidade;
+    int i = 1;
+
+    int totalFeminino = 0;
+    int totalMasculino = 0;
+    int totalAte24 = 0;
+    int quantidadeFeminino = 0;
+    int quantidadeMasculino = 0;
+
+    int tempoVida;
+    char sexo;
+
+    double percentualFeminino;
+    double percentualMasculino;
+    double percentualAte24;
+    
+    System.out.print("Digite a quantidade de crianças: ");
+    quantidade = sc.nextInt();
+    
+    while (i <= quantidade) {
+    
+    System.out.println("\nCriança " + i);
+    
+    System.out.print("Digite o sexo (M/F): ");
+    sexo = sc.next().toUpperCase().charAt(0);
+
+    System.out.print("Digite o tempo de vida em meses: ");
+    tempoVida = sc.nextInt();
+    
+    if (sexo == 'F') {
+    quantidadeFeminino++;
+    
+    } else if (sexo == 'M') {
+    quantidadeMasculino++;
+    }
+    
+    if (tempoVida == 0) {
+     if (sexo == 'F') {
+          totalFeminino++;
+          
+    }else if (sexo == 'M') {
+          totalMasculino++;
+      }
+    }
+    if (tempoVida <= 24) {
+       totalAte24++;
+    }
+      i++;   
+    } 
+     percentualFeminino = 0;
+     percentualMasculino = 0;
+     percentualAte24 = 0;
+     
+     if (quantidadeFeminino > 0) {
+            percentualFeminino =
+                (double) totalFeminino / quantidadeFeminino * 100;
+        }
+
+        if (quantidadeMasculino > 0) {
+            percentualMasculino =
+                (double) totalMasculino / quantidadeMasculino * 100;
+        }
+
+        if (quantidade > 0) {
+            percentualAte24 =
+                (double) totalAte24 / quantidade * 100;
+        }
+
+      System.out.println("""
+      ----- RESULTADOS -----""");
+      
+      System.out.printf("Percentual feminino que morreu: %.2f%%%n",
+            percentualFeminino);
+            
+      System.out.printf("Percentual masculino que morreu: %.2f%%%n",
+            percentualMasculino);
+            
+      System.out.printf("Percentual que viveu até 24 meses: %.2f%%%n",
+            percentualAte24);
+     
+    }
+  }
+
+25-Produtos, estoque e classificação de preços
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+	
+	Scanner sc = new Scanner(System.in);
+
+        int i = 1;
+
+        double preco;
+        double custoEstocagem;
+        double imposto;
+        double precoFinal;
+
+        double somaAdicionais = 0;
+        double totalImpostos = 0;
+        double maiorPrecoFinal = 0;
+        double menorPrecoFinal = 0;
+
+        int baratos = 0;
+        int normais = 0;
+        int caros = 0;
+
+        char refrigeracao;
+        char categoria;
+        String classificacao;
+
+        while (i <= 12) {
+
+        System.out.println("\n------PRODUTO " + i + " ------");
+
+        System.out.print("Digite o preço unitário: R$ ");
+        preco = sc.nextDouble();
+
+        System.out.print("Precisa de refrigeração? (S/N): ");
+        refrigeracao = sc.next().toUpperCase().charAt(0);
+
+        System.out.print("Categoria (A/L/V): ");
+        categoria = sc.next().toUpperCase().charAt(0);
+	
+    if (preco <= 20) {
+
+    if (categoria == 'A') {
+     custoEstocagem = 2.00;
+    } else if (categoria == 'L') {
+     custoEstocagem = 3.00;
+    
+    } else {
+     custoEstocagem = 4.00;
+    }
+
+    } else if (preco <= 50) {
+
+    if (refrigeracao == 'S') {
+      custoEstocagem = 6.00;
+    } else {
+      custoEstocagem = 0.00;
+    }
+
+    } else {
+
+    if (refrigeracao == 'S') {
+
+    if (categoria == 'A') {
+     custoEstocagem = 5.00;
+     
+    } else if (categoria == 'L') {
+     custoEstocagem = 2.00;
+            
+    } else {
+     custoEstocagem = 4.00;
+    }
+
+    } else {
+
+    if (categoria == 'L') {
+    custoEstocagem = 1.00;
+    
+    } else {
+    custoEstocagem = 0.00;
+    
+         }
+      }
+    }
+        if (categoria == 'A' && refrigeracao == 'S') {
+                imposto = preco * 0.04;
+        } else {
+                imposto = preco * 0.02;
+        }
+        
+        precoFinal = preco + custoEstocagem + imposto;
+        
+         if (precoFinal <= 20) {
+        classificacao = "Barato";
+        baratos++;
+        
+        } else if (precoFinal <= 100) {
+        classificacao = "Normal";
+        normais++;
+        
+        } else {
+        classificacao = "Caro";
+        caros++;
+        }
+        
+        somaAdicionais += custoEstocagem + imposto;
+        totalImpostos += imposto;
+        
+        if (i == 1) {
+        maiorPrecoFinal = precoFinal;
+        menorPrecoFinal = precoFinal;
+        
+        } else {
+        if (precoFinal > maiorPrecoFinal) {
+        maiorPrecoFinal = precoFinal;
+        }
+
+        if (precoFinal < menorPrecoFinal) {
+        menorPrecoFinal = precoFinal;
+          }
+        }
+        System.out.printf("Preço unitário: R$ %.2f%n", preco);
+        System.out.printf("Custo de estocagem: R$ %.2f%n",
+        custoEstocagem);
+        
+        System.out.printf("Imposto: R$ %.2f%n", imposto);
+        System.out.printf("Preço final: R$ %.2f%n", precoFinal);
+        System.out.println("Classificação: " + classificacao);
+
+        i++;
+        }
+        
+        double mediaAdicionais = somaAdicionais / 12;
+
+        System.out.printf("Média dos valores adicionais: R$ %.2f%n",
+                mediaAdicionais);
+        System.out.printf("Maior preço final: R$ %.2f%n",
+                maiorPrecoFinal);
+        System.out.printf("Menor preço final: R$ %.2f%n",
+                menorPrecoFinal);
+        System.out.printf("Total de impostos: R$ %.2f%n",
+                totalImpostos);
+
+        System.out.println("Produtos baratos: " + baratos);
+        System.out.println("Produtos normais: " + normais);
+        System.out.println("Produtos caros: " + caros);
+    
+    }
+  }
