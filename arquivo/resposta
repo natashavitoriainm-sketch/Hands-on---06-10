@@ -425,8 +425,7 @@ public class Main {
 
 14- Números entre 1000 e 1999
 import java.util.Scanner;
-public class Main
-{
+public class Main {
 	public static void main(String[] args) {
 		
 		for (int num = 1000; num <= 1999; num++) {
@@ -439,8 +438,7 @@ public class Main
 
 15- Série harmônica
 import java.util.Scanner;
-public class Main
-{
+public class Main {
 	public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
 
@@ -464,8 +462,7 @@ public class Main
 
 16-Números perfeitos
 import java.util.Scanner;
-public class Main
-{
+public class Main {
 	public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
 
@@ -550,3 +547,249 @@ public class Main {
 }
 
 18-Conceito final dos alunos
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int matricula;
+        double nota;
+        char conceito;
+		
+		for (int i = 1; i <= 75; i++) {
+	    System.out.print("Digite o numero da matricula: ");
+	    matricula = sc.nextInt();
+	    
+	    System.out.print("Digite a nota final: ");
+	    nota = sc.nextDouble();
+	    
+	    if (nota > 9) {
+	        conceito = 'A';
+	    }else if (nota >= 7) {
+	        conceito = 'B';
+	    }else if (nota >= 5) {
+	        conceito = 'C';
+	    }else {
+	        conceito = 'D';
+	    }
+	    System.out.println("Matrícula: " + matricula);
+	    System.out.println("Nota: " + nota);
+	    System.out.println("Conceito: " + conceito);
+		}
+	}
+}
+
+19- Faixa etária
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+	    int idade;
+	    
+	    double percentual1;
+        double percentual5;
+        
+	    int faixa1 = 0;
+        int faixa2 = 0;
+        int faixa3 = 0;
+        int faixa4 = 0;
+        int faixa5 = 0;
+	    
+	    System.out.print("Digite a idade: ");
+	    
+	    for (int i = 1; i <= 15; i++) {
+	        idade = sc.nextInt();
+	     
+	    if (idade <= 15) {
+	        faixa1++;
+	        
+	    }else if (idade <= 30) {
+	        faixa2++;
+	        
+	    }else if (idade <= 45) {
+	        faixa3++;
+	        
+	    }else if (idade <= 60) {
+	        faixa4++;
+	        
+	    }else {
+	        faixa5++;
+	    }
+	}
+	percentual1 = faixa1 * 100.0 / 15;
+    percentual5 = faixa5 * 100.0 / 15;
+    
+         System.out.println("Faixa 1: " + faixa1);
+	     System.out.println("Faixa 2: " + faixa2);
+	     System.out.println("Faixa 3: " + faixa3);
+	     System.out.println("Faixa 4: " + faixa4);
+	     System.out.println("Faixa 5: " + faixa5);
+	     
+	 System.out.println("O percentual da primeira faixa: " + percentual1);
+	 System.out.println("O percentual da última faixa: " + percentual5);
+  }
+}
+
+20-Cálculo de série
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+	    int quantidade;
+	    int potencia;
+	    int denominador;
+	    
+	    
+	    double x;
+	    double s = 0;
+	    double termo;
+	    double fatorial = 1;
+	    
+	   System.out.print("Digite a quantidade de termos: ");
+       quantidade = sc.nextInt();
+       
+       System.out.print("o valor de x: ");
+       x = sc.nextDouble();
+       
+       
+	    for (int i = 1; i <= quantidade; i++) {
+	    potencia = i + 1; 
+	    int posicao = (i - 1) % 6;
+	    if (posicao == 0) {
+         denominador = 1;
+        } else if (posicao == 1) {
+         denominador = 2;
+         
+        } else if (posicao == 2) {
+         denominador = 3; 
+         
+        } else if (posicao == 3) {
+         denominador = 4;
+         
+        } else if (posicao == 4) {
+         denominador = 3;
+         
+        } else {
+         denominador = 2;
+       }
+	    fatorial = 1;
+       
+        for (int j = 1; j <= denominador; j++) {
+        fatorial *= j;   
+        }
+        termo = Math.pow(x, potencia) / fatorial;
+        if (i % 2 == 1) {
+            termo = termo * -1;
+        }
+        
+        s = s + termo;
+	  }
+	  System.out.println("S = " + s);
+	   
+  }
+}
+
+21-Folha de pagamento
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+      int codigo;
+      int horas;
+      char turno;
+      char categoria;
+
+      double salarioMinimo = 1621.00;
+      double valorHora;
+      double salarioInicial;
+      double auxilio;
+      double salarioFinal;
+      
+      for (int i = 1; i <= 10; i++) {
+        System.out.print("Digite o código do funcionário: ");
+        codigo = sc.nextInt();
+
+        System.out.print("Digite as horas trabalhadas: ");
+        horas = sc.nextInt();
+
+        System.out.print("Digite o turno (M, V ou N): ");
+        turno = sc.next().toUpperCase().charAt(0);
+        
+        while (turno != 'M' && turno != 'V' && turno != 'N') {
+        System.out.print("Turno inválido! Digite M, V ou N: ");
+        turno = sc.next().toUpperCase().charAt(0);
+        }
+
+        System.out.print("Digite a categoria (O ou G): ");
+        categoria = sc.next().toUpperCase().charAt(0); 
+        
+        while (categoria != 'O' && categoria != 'G') {
+        System.out.print("Categoria inválida! Digite O ou G: ");
+        categoria = sc.next().toUpperCase().charAt(0);
+        }
+        if (categoria == 'G' && turno == 'N') {
+        valorHora = salarioMinimo * 0.18;
+        
+        } else if (categoria == 'G') {
+        valorHora = salarioMinimo * 0.15;
+        
+        } else if (categoria == 'O' && turno == 'N') {
+        valorHora = salarioMinimo * 0.13;
+        
+        } else {
+        valorHora = salarioMinimo * 0.10;
+        }
+        salarioInicial = horas * valorHora;
+        
+        if (salarioInicial <= 1080) {
+        auxilio = salarioInicial * 0.20;
+        
+        } else if (salarioInicial <= 2160) {
+        auxilio = salarioInicial * 0.15;
+        
+        } else {
+        auxilio = salarioInicial * 0.05;
+        }
+        salarioFinal = salarioInicial + auxilio;
+        
+        System.out.println("""
+        --- Dados do funcionário ----
+        """);
+        System.out.println("Código: " + codigo);
+        System.out.println("Horas trabalhadas: " + horas);
+        System.out.printf("Valor da hora: R$ %.2f%n", valorHora);
+        System.out.printf("Salário inicial: R$ %.2f%n", salarioInicial);
+        System.out.printf("Auxílio-alimentação: R$ %.2f%n", auxilio);
+        System.out.printf("Salário final: R$ %.2f%n", salarioFinal);
+      }
+  }
+}
+
+22-Sequência de Fibonacci
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+      int n;
+      int anterior = 0;
+      int atual = 1;
+      int proximo;
+      
+       System.out.print("Digide a quantidade de termos: ");
+       n = sc.nextInt();
+        
+      for (int i = 1; i <= n; i++) {
+       System.out.print(anterior + " ");
+       
+       proximo = anterior + atual;
+       anterior = atual;
+       atual = proximo;
+      }
+  }
+}
+
+23- Produção de uma fábrica
